@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (Build.VERSION.SDK_INT >= 23 &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
         else {
@@ -70,8 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 updateLocationInfo(location);
             }
         }
-
-
     }
 
     public void startListening() {
@@ -115,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
             List<Address> listAddresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
 
             if (listAddresses != null && listAddresses.size() > 0) {
+
                 Log.i("PlaceInfo", listAddresses.get(0).toString());
                 address = "Address: \n";
 
